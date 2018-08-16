@@ -1,0 +1,141 @@
+﻿@font-face {
+    font-family: 'BahnschriftCrypto'; /*a name to be used later*/
+    src: url('../fonts/bahnschrift.ttf') format('truetype'); /*URL to font*/
+}
+
+html {
+    background: url(img/_BER6093.JPG) no-repeat center center fixed;
+    background-size: cover;
+}
+
+body {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-family: "BahnschriftCrypto";
+    background-color: rgba(0,0,10,0.7);
+    min-height: 100vh;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+.NavBarCrypto {
+    height: 70px;
+    background-color: rgba(0,0,10,0.85);
+    border: none;
+    border-bottom: solid 1px white;
+}
+
+.NavBarCryptoInnerContainer {
+    height: 100%;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #428bca;
+    font-size: 120%;
+}
+
+.navbar-inverse .NavBarCryptoBrand {
+    margin-top: 10px;
+    font-size: 160%;
+    color: #428bca;
+}
+
+footer {
+    color: #ffaaaa;
+    position: absolute;
+    bottom: 2vh;
+}
+
+.navbar-inverse .navbar-toggle {
+    margin-top: 17px;
+}
+
+.navbar-inverse .navbar-collapse {
+    border: none;
+    margin-top: 10px;
+    background-color: rgba(0,0,10,0.85);
+}
+
+.transparten-white {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/*Index*/
+.IndexHeadingText {
+    color: #ffaaaa;
+    font-size: calc(20px + 4vw);
+    position: absolute;
+    top: 250px;
+    left: 10vw;
+    font-family: "Nova Flat";
+}
+
+.SecondHeadingText {
+    margin-left: 10vw;
+}
+
+.IndexHeadingText2 {
+    font-size: calc(20px + 2vw);
+    color: bisque;
+    position: absolute;
+    top: 110px;
+    right: 15vw;
+    font-family: "Nova Flat";
+}
+
+.IndexHeadingText3 {
+    font-size: calc(15px + 2vw);
+    color: darkseagreen;
+    position: absolute;
+    top: 550px;
+    right: 10vw;
+    font-family: "Nova Flat";
+    font-weight: 800;
+    max-width: 40vw;
+}
+
+
+.noscroll {
+    overflow: hidden;
+}
+
+
+.explore {
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: calc(25px + 2vw);
+    color: #ffaaaa;
+    padding: 2vw;
+}
+
+.iconsend {
+    font-size: 75%;
+}
+
+.explore:hover {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 0.2vw;
+    transition: 1s;
+}
