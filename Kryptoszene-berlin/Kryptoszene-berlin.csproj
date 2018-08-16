@@ -162,7 +162,10 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\_BER6029.JPG" />
+    <Content Include="Content\img\_BER6030.JPG" />
     <Content Include="Content\img\_BER6093.JPG" />
+    <Content Include="Content\img\_BER6154.JPG" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

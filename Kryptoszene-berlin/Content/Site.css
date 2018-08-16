@@ -139,3 +139,47 @@ footer {
     border-radius: 0.2vw;
     transition: 1s;
 }
+
+/* Contact*/
+.white {
+    color: white;
+}
+
+.conWrapper {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.conHeader {
+    font-size: 500%;
+    color: #ffaaaa;
+    text-align: center;
+    margin-top: 4vw;
+    margin-bottom: 6vw;
+}
+
+.right {
+    text-align: right;
+}
+
+.condescription {
+    padding-top: 1.5vw;
+}
+
+.condImg {
+    padding: 1vw;
+}
+
+img {
+    max-width: 100%;
+}
+
+.contRow {
+    margin-bottom: 4vw;
+    margin-top: 4vw;
+}
+
+hr {
+    border-color: black;
+    margin-right: 10%;
+    width: 80%;
+}
