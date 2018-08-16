@@ -15,6 +15,8 @@ namespace Kryptoszene_berlin.Models
         public CryptoContext()
             : base("name=CryptoContext")
         {
+            Database.SetInitializer<CryptoContext>(new DropCreateDatabaseIfModelChanges<CryptoContext>());
+
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
