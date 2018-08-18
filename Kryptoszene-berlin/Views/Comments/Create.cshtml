@@ -6,6 +6,7 @@
 }
 
 <div class="comWrapper">
+    @using reCAPTCHA.MVC
     @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -29,7 +30,12 @@
                     <small>Kommentare können später nicht bearbeitet werden!</small>
                 </div>
             </div>
-
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 captcha">
+                    @Html.Recaptcha()
+                    @Html.ValidationMessage("ReCaptcha")
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Hinzufügen" class="btn btn-success" />

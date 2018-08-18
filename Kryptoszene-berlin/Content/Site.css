@@ -225,3 +225,8 @@ hr {
 .extrapadding {
     padding-top: 30px;
 }
+
+.captcha {
+    padding-top: calc(10px + 1vw);
+    padding-bottom: calc(10px + 1vw);
+}

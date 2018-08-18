@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Kryptoszene_berlin.Models;
+using reCAPTCHA.MVC;
 
 namespace Kryptoszene_berlin.Controllers
 {
@@ -50,18 +51,23 @@ namespace Kryptoszene_berlin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [CaptchaValidator(
+            PrivateKey = "6LdnmWoUAAAAAFJEvlRBh_Ur6AD-eutE9TZX_pc7",
+            ErrorMessage = "Invalide Captcha Eingabe",
+            RequiredMessage = "Dieses Feld ist ein Pflichtfeld")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Message")] Comment comment)
+        public ActionResult Create([Bind(Include = "Id,Name,Message")] Comment comment, bool captchaValid)
         {
             comment.TimeStamp = DateTime.Now;
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && !string.IsNullOrWhiteSpace(comment.Name) && !string.IsNullOrWhiteSpace(comment.Message))
             {
                 db.Comments.Add(comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View("ErrorComment");
+
         }
 
         // GET: Comments/Edit/5
