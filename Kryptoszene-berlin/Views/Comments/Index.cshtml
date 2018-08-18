@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Kryptoszene_berlin.Models.Comment>
+﻿@model Kryptoszene_berlin.Models.CommentViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -8,43 +8,15 @@
 <div class="conHeader">Impressum</div>
 
 
-<div class="conWrapper">
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TimeStamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Message)
-            </th>
-            <th></th>
-        </tr>
+<div class="conWrapper extrapadding">
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeStamp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Message)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+    @{ Html.RenderPartial("List", Model.Comments); }
+    @{ Html.RenderPartial("Create", Model.NewComment); }
 
-    </table>
+
 </div>
+
+<footer>
+    <a href="mailto:info@kryptoszene-berlin.ch">info@kryptoszene-berlin.ch</a>
+    <p>&copy; @DateTime.Now.Year - Krypotszene Berlin</p>
+</footer>

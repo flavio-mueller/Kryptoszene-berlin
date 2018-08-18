@@ -30,8 +30,7 @@ body {
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select {
     max-width: 280px;
 }
 
@@ -61,14 +60,12 @@ textarea {
 
 footer {
     color: #ffaaaa;
-    position: fixed;
-    bottom: 0;
+    position: static;
     text-align: center;
     width: 100%;
     height: 70px;
-    padding-top: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-top: solid 1px white;
+    padding-top: 30px;
+    margin-bottom: 20px;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -155,11 +152,15 @@ footer {
 }
 
 .conHeader {
-    font-size: 500%;
+    font-size: calc(28px + 3vw);
     color: #ffaaaa;
     text-align: center;
     margin-top: 4vw;
     margin-bottom: 6vw;
+}
+
+.conName {
+    color: chocolate;
 }
 
 .right {
@@ -187,4 +188,40 @@ hr {
     border-color: black;
     margin-right: 10%;
     width: 80%;
+}
+
+
+/* Impressum */
+
+.comWrapper {
+    margin: 0 5vw;
+    padding: 2vw;
+}
+
+.comName {
+    font-size: calc(0.8vw + 18px);
+    color: chocolate;
+}
+
+.comMessage {
+    padding: 0.8vw;
+    font-size: calc(0.4vw + 12px);
+}
+
+.comDate {
+    text-align: right;
+    font-size: calc(0.4vw + 8px);
+}
+
+.crHead {
+    font-size: calc(0.4vw + 18px);
+    margin: 2vw 0;
+}
+
+.textAreaComment {
+    max-width: 550px;
+}
+
+.extrapadding {
+    padding-top: 30px;
 }

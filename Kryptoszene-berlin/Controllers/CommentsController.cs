@@ -17,7 +17,12 @@ namespace Kryptoszene_berlin.Controllers
         // GET: Comments
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            var model = new CommentViewModel()
+            {
+                NewComment = new Comment(),
+                Comments = db.Comments.ToList().Skip(Math.Max(0, db.Comments.Count() - 15))
+            };
+            return View(model);
         }
 
         // GET: Comments/Details/5
@@ -46,8 +51,9 @@ namespace Kryptoszene_berlin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,TimeStamp,Message")] Comment comment)
+        public ActionResult Create([Bind(Include = "Id,Name,Message")] Comment comment)
         {
+            comment.TimeStamp = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);
@@ -61,6 +67,7 @@ namespace Kryptoszene_berlin.Controllers
         // GET: Comments/Edit/5
         public ActionResult Edit(int? id)
         {
+            return View("Error");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +87,8 @@ namespace Kryptoszene_berlin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,TimeStamp,Message")] Comment comment)
         {
+            return View("Error");
+
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;
@@ -92,6 +101,8 @@ namespace Kryptoszene_berlin.Controllers
         // GET: Comments/Delete/5
         public ActionResult Delete(int? id)
         {
+            return View("Error");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +120,7 @@ namespace Kryptoszene_berlin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            return View("Error");
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();

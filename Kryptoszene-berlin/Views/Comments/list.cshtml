@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Kryptoszene_berlin.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@foreach (var item in Model)
+{
+    <div class="comWrapper">
+        <div class="comName">
+            @Html.DisplayFor(modelItem => item.Name)
+        </div>
+        <div class="comMessage">
+            @Html.DisplayFor(modelItem => item.Message)
+        </div>
+        <div class="comDate">
+            @string.Format("{0:d.M.yyyy}", item.TimeStamp)
+        </div>
+    </div>
+    <hr />
+}
