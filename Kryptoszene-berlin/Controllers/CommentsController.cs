@@ -73,7 +73,7 @@ namespace Kryptoszene_berlin.Controllers
         // GET: Comments/Edit/5
         public ActionResult Edit(int? id)
         {
-            return View("Error");
+            return View("ErrorAuth");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -93,7 +93,7 @@ namespace Kryptoszene_berlin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,TimeStamp,Message")] Comment comment)
         {
-            return View("Error");
+            return View("ErrorAuth");
 
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace Kryptoszene_berlin.Controllers
         // GET: Comments/Delete/5
         public ActionResult Delete(int? id)
         {
-            return View("Error");
+            return View("ErrorAuth");
 
             if (id == null)
             {
@@ -126,7 +126,7 @@ namespace Kryptoszene_berlin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            return View("Error");
+            return View("ErrorAuth");
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
