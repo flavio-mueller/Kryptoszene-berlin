@@ -230,3 +230,20 @@ hr {
     padding-top: calc(10px + 1vw);
     padding-bottom: calc(10px + 1vw);
 }
+
+.IFrameWrapper iframe, .IFrameWrapper object, .IFrameWrapper embed {
+    width: 50vw;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.IFrameWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

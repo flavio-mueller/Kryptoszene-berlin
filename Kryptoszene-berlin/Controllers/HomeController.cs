@@ -21,5 +21,9 @@ namespace Kryptoszene_berlin.Controllers
         {
             return View();
         }
+        public ActionResult InterView()
+        {
+            return View();
+        }
     }
 }

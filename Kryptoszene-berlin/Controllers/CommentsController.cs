@@ -29,6 +29,7 @@ namespace Kryptoszene_berlin.Controllers
         // GET: Comments/Details/5
         public ActionResult Details(int? id)
         {
+            return View("ErrorAuth");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
