@@ -169,11 +169,30 @@ footer {
 
 .condescription {
     padding-top: 1.5vw;
+    height: 100%;
 }
 
 .condImg {
     padding: 1vw;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
 }
+
+@media screen and (max-width: 991px) {
+    .condImg {
+        padding-top: calc(1vw + 27px);
+    }
+}
+
+@media screen and (max-width: 776px) {
+    .condescription {
+        text-align: center;
+    }
+}
+
+
 
 img {
     max-width: 100%;
@@ -243,11 +262,11 @@ hr {
     position: relative;
 }
 
-.IFrameWrapper:after {
-    content: "";
-    display: block;
-    padding-bottom: 56.25%;
-}
+    .IFrameWrapper:after {
+        content: "";
+        display: block;
+        padding-bottom: 56.25%;
+    }
 
 
 .chartContainer {
@@ -266,6 +285,20 @@ hr {
     vertical-align: middle;
     font-size: calc(0.8vw + 8px);
 }
+
+@media screen and (max-width: 776px) {
+    .ChartDescription {
+        text-align: center !important;
+        height: auto;
+    }
+
+    .innerDescription {
+        text-align: center !important;
+        padding: 5vw !important;
+        top: 0 !important;
+        transform: unset !important;
+    }
+} 
 
 .innerDescription {
     position: relative;
