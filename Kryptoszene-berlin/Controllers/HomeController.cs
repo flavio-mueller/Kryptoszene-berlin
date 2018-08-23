@@ -25,5 +25,10 @@ namespace Kryptoszene_berlin.Controllers
         {
             return View();
         }
+
+        public ActionResult Introduction()
+        {
+            return View();
+        }
     }
 }
