@@ -231,21 +231,22 @@ hr {
     padding-bottom: calc(10px + 1vw);
 }
 
-.IFrameWrapper iframe, .IFrameWrapper object, .IFrameWrapper embed {
-    width: 50vw;
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
+.IFrame {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 .IFrameWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    margin: 3vw;
+    width: calc(100% - 6vw);
+    position: relative;
+}
+
+.IFrameWrapper:after {
+    content: "";
+    display: block;
+    padding-bottom: 56.25%;
 }
 
 
@@ -280,4 +281,15 @@ hr {
 .desLeft {
     text-align: right;
     padding-left: 5vw;
+}
+
+.InterviewText {
+    text-align: center;
+    font-size: calc(0.8vw + 8px);
+    margin: 5vw;
+}
+
+.interviewImg {
+    margin: 2vw;
+    max-width: 80%;
 }
