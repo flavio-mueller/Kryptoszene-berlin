@@ -1,317 +1,356 @@
-﻿<!DOCTYPE HTML>
-<html>
-<head>
-<script type="text/javascript">
-window.onload = function () {
+﻿<script type="text/javascript">
+    window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title:{
-		text: "Wie gut kennen Sie sich mit Kryptowährungen aus?"
-    },
-	axisY: {
-		title: "Kenntnise"
-	},
-	legend: {
-		cursor:"pointer",
-		itemclick : toggleDataSeries
-	},
-	toolTip: {
-		shared: true,
-		content: toolTipFormatter
-	},
-	data: [{
-		type: "bar",
-		showInLegend: true,
-		name: "1",
-		color: "gold",
-		dataPoints: [
-			{ y: 3, label: "<25" },
-			{ y: 3, label: "25-50" },
-			{ y: 4, label: ">50" }
-		]
-	},
-	{
-		type: "bar",
-		showInLegend: true,
-		name: "2",
-		color: "silver",
-		dataPoints: [
-            { y: 3, label: "<25" },
-            { y: 2, label: "25-50" },
-            { y: 1, label: ">50" }
-		]
-    },
-    {
-		type: "bar",
-		showInLegend: true,
-		name: "3",
-        color: "#00FFBF",
-		dataPoints: [
-            { y: 3, label: "<25" },
-            { y: 4, label: "25-50" },
-            { y: 0, label: ">50" }
-		]
-    },
-    {
-		type: "bar",
-		showInLegend: true,
-		name: "4",
-        color: "#DF01D7",
-		dataPoints: [
-            { y: 1, label: "<25" },
-            { y: 4, label: "25-50" },
-            { y: 0, label: ">50" }
-		]
-     },
-    {
-            type: "bar",
-            showInLegend: true,
-            name: "5",
-        color: "#00FF00",
-            dataPoints: [
-                { y: 3, label: "<25" },
-                { y: 3, label: "25-50" },
-                { y: 1, label: ">50" }
-            ]
-    },
-	{
-		type: "bar",
-		showInLegend: true,
-		name: "6",
-		color: "#A57164",
-		dataPoints: [
-            { y: 3, label: "<25" },
-            { y: 0, label: "25-50" },
-            { y: 0, label: ">50" }
-		]
-	}]
-    });
-    var chart2 = new CanvasJS.Chart("chartContainer1", {
-        animationEnabled: true,
-        title: {
-            text: "Welchen Zweck erfüllen Kryptowährungen Ihrer Meinung nach?"
-        },
-        axisY: {
-            title: "Zweck"
-        },
-        legend: {
-            cursor: "pointer",
-            itemclick: toggleDataSeries
-        },
-        toolTip: {
-            shared: true,
-            content: toolTipFormatter
-        },
-        data: [{
-            type: "bar",
-            showInLegend: true,
-            name: "Zahlungsmittel",
-            color: "gold",
-            dataPoints: [
-                { y: 2, label: "<25" },
-                { y: 4, label: "25-50" },
-                { y: 0, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "Investment",
-            color: "silver",
-            dataPoints: [
-                { y: 12, label: "<25" },
-                { y: 8, label: "25-50" },
-                { y: 1, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "Trading",
-            color: "#00FFBF",
-            dataPoints: [
-                { y: 12, label: "<25" },
-                { y: 10, label: "25-50" },
-                { y: 0, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "Keinen",
-            color: "#A57164",
-            dataPoints: [
-                { y: 1, label: "<25" },
-                { y: 2, label: "25-50" },
-                { y: 5, label: ">50" }
-            ]
-        }]
-    });
-    var chart3 = new CanvasJS.Chart("chartContainer2", {
-        animationEnabled: true,
-        title: {
-            text: "Inwiefern denken Sie dass sich Kryptowährungen als alltägliches Zahlungsmittel durchsetzen werden?"
-        },
-        axisY: {
-            title: "Durchsetzen"
-        },
-        legend: {
-            cursor: "pointer",
-            itemclick: toggleDataSeries
-        },
-        toolTip: {
-            shared: true,
-            content: toolTipFormatter
-        },
-        data: [{
-            type: "bar",
-            showInLegend: true,
-            name: "1",
-            color: "gold",
-            dataPoints: [
-                { y: 0, label: "<25" },
-                { y: 1, label: "25-50" },
-                { y: 0, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "2",
-            color: "silver",
-            dataPoints: [
-                { y: 4, label: "<25" },
-                { y: 3, label: "25-50" },
-                { y: 3, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "3",
-            color: "#00FFBF",
-            dataPoints: [
-                { y: 5, label: "<25" },
-                { y: 3, label: "25-50" },
-                { y: 1, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "4",
-            color: "#DF01D7",
-            dataPoints: [
-                { y: 2, label: "<25" },
-                { y: 4, label: "25-50" },
-                { y: 2, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "5",
-            color: "#00FF00",
-            dataPoints: [
-                { y: 4, label: "<25" },
-                { y: 5, label: "25-50" },
-                { y: 0, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "6",
-            color: "#A57164",
-            dataPoints: [
-                { y: 1, label: "<25" },
-                { y: 0, label: "25-50" },
-                { y: 0, label: ">50" }
-            ]
-        }]
-    });
-    var chart4 = new CanvasJS.Chart("chartContainer3", {
-        animationEnabled: true,
-        title: {
-            text: "Könnten Sie sich vorstellen in Zukunft mit Kryptowährungen zu zahlen?"
-        },
-        axisY: {
-            title: "Zweck"
-        },
-        legend: {
-            cursor: "pointer",
-            itemclick: toggleDataSeries
-        },
-        toolTip: {
-            shared: true,
-            content: toolTipFormatter
-        },
-        data: [{
-            type: "bar",
-            showInLegend: true,
-            name: "Ja",
-            color: "gold",
-            dataPoints: [
-                { y: 11, label: "<25" },
-                { y: 12, label: "25-50" },
-                { y: 2, label: ">50" }
-            ]
-        },
-        {
-            type: "bar",
-            showInLegend: true,
-            name: "Nein",
-            color: "silver",
-            dataPoints: [
-                { y: 5, label: "<25" },
-                { y: 4, label: "25-50" },
-                { y: 4, label: ">50" }
-            ]
-        }]
-    });
-    chart.render();
-    chart2.render();
-    chart3.render();
-    chart4.render();
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: "Wie gut kennen Sie sich mit Kryptowährungen aus?"
+            },
+            theme: "dark2",
+            axisY: {
+                title: "Kenntnise"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toggleDataSeries
+            },
+            toolTip: {
+                shared: true,
+                content: toolTipFormatter
+            },
+            data: [{
+                type: "bar",
+                showInLegend: true,
+                name: "1",
+                color: "#5AB190",
+                dataPoints: [
+                    { y: 3, label: "<25" },
+                    { y: 3, label: "25-50" },
+                    { y: 4, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "2",
+                color: "#228FCF",
+                dataPoints: [
+                    { y: 3, label: "<25" },
+                    { y: 2, label: "25-50" },
+                    { y: 1, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "3",
+                color: "#364EB9",
+                dataPoints: [
+                    { y: 3, label: "<25" },
+                    { y: 4, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "4",
+                color: "#E16E79",
+                dataPoints: [
+                    { y: 1, label: "<25" },
+                    { y: 4, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "5",
+                color: "#D4A656",
+                dataPoints: [
+                    { y: 3, label: "<25" },
+                    { y: 3, label: "25-50" },
+                    { y: 1, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "6",
+                color: "#E8EBC2",
+                dataPoints: [
+                    { y: 3, label: "<25" },
+                    { y: 0, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            }]
+        });
+        var chart2 = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            title: {
+                text: "Welchen Zweck erfüllen Kryptowährungen Ihrer Meinung nach?"
+            },
+            theme: "dark2",
+            axisY: {
+                title: "Zweck"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toggleDataSeries
+            },
+            toolTip: {
+                shared: true,
+                content: toolTipFormatter
+            },
+            data: [{
+                type: "bar",
+                showInLegend: true,
+                name: "Zahlungsmittel",
+                color: "#5AB190",
+                dataPoints: [
+                    { y: 2, label: "<25" },
+                    { y: 4, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "Investment",
+                color: "#228FCF",
+                dataPoints: [
+                    { y: 12, label: "<25" },
+                    { y: 8, label: "25-50" },
+                    { y: 1, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "Trading",
+                color: "#364EB9",
+                dataPoints: [
+                    { y: 12, label: "<25" },
+                    { y: 10, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "Keinen",
+                color: "#E16E79",
+                dataPoints: [
+                    { y: 1, label: "<25" },
+                    { y: 2, label: "25-50" },
+                    { y: 5, label: ">50" }
+                ]
+            }]
+        });
+        var chart3 = new CanvasJS.Chart("chartContainer2", {
+            animationEnabled: true,
+            title: {
+                text: "Inwiefern denken Sie dass sich Kryptowährungen als alltägliches Zahlungsmittel durchsetzen werden?"
+            },
+            theme: "dark2",
+            axisY: {
+                title: "Durchsetzen"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toggleDataSeries
+            },
+            toolTip: {
+                shared: true,
+                content: toolTipFormatter
+            },
+            data: [{
+                type: "bar",
+                showInLegend: true,
+                name: "1",
+                color: "#5AB190",
+                dataPoints: [
+                    { y: 0, label: "<25" },
+                    { y: 1, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "2",
+                color: "#228FCF",
+                dataPoints: [
+                    { y: 4, label: "<25" },
+                    { y: 3, label: "25-50" },
+                    { y: 3, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "3",
+                color: "#364EB9",
+                dataPoints: [
+                    { y: 5, label: "<25" },
+                    { y: 3, label: "25-50" },
+                    { y: 1, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "4",
+                color: "#E16E79",
+                dataPoints: [
+                    { y: 2, label: "<25" },
+                    { y: 4, label: "25-50" },
+                    { y: 2, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "5",
+                color: "#D4A656",
+                dataPoints: [
+                    { y: 4, label: "<25" },
+                    { y: 5, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "6",
+                color: "#E8EBC2",
+                dataPoints: [
+                    { y: 1, label: "<25" },
+                    { y: 0, label: "25-50" },
+                    { y: 0, label: ">50" }
+                ]
+            }]
+        });
+        var chart4 = new CanvasJS.Chart("chartContainer3", {
+            animationEnabled: true,
+            title: {
+                text: "Könnten Sie sich vorstellen in Zukunft mit Kryptowährungen zu zahlen?"
+            },
+            theme: "dark2",
+            axisY: {
+                title: "Zweck"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toggleDataSeries
+            },
+            toolTip: {
+                shared: true,
+                content: toolTipFormatter
+            },
+            data: [{
+                type: "bar",
+                showInLegend: true,
+                name: "Ja",
+                color: "#5AB190",
+                dataPoints: [
+                    { y: 11, label: "<25" },
+                    { y: 12, label: "25-50" },
+                    { y: 2, label: ">50" }
+                ]
+            },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "Nein",
+                color: "#228FCF",
+                dataPoints: [
+                    { y: 5, label: "<25" },
+                    { y: 4, label: "25-50" },
+                    { y: 4, label: ">50" }
+                ]
+            }]
+        });
+        chart.render();
+        chart2.render();
+        chart3.render();
+        chart4.render();
 
-function toolTipFormatter(e) {
-	var str = "";
-	var total = 0 ;
-	var str3;
-	var str2 ;
-	for (var i = 0; i < e.entries.length; i++){
-		var str1 = "<span style= \"color:"+e.entries[i].dataSeries.color + "\">" + e.entries[i].dataSeries.name + "</span>: <strong>"+  e.entries[i].dataPoint.y + "</strong> <br/>" ;
-		total = e.entries[i].dataPoint.y + total;
-		str = str.concat(str1);
-	}
-	str2 = "<strong>" + e.entries[0].dataPoint.label + "</strong> <br/>";
-	str3 = "<span style = \"color:Tomato\">Total: </span><strong>" + total + "</strong><br/>";
-	return (str2.concat(str)).concat(str3);
-}
+        function toolTipFormatter(e) {
+            var str = "";
+            var total = 0;
+            var str3;
+            var str2;
+            for (var i = 0; i < e.entries.length; i++) {
+                var str1 = "<span style= \"color:" + e.entries[i].dataSeries.color + "\">" + e.entries[i].dataSeries.name + "</span>: <strong>" + e.entries[i].dataPoint.y + "</strong> <br/>";
+                total = e.entries[i].dataPoint.y + total;
+                str = str.concat(str1);
+            }
+            str2 = "<strong>" + e.entries[0].dataPoint.label + "</strong> <br/>";
+            str3 = "<span style = \"color:Tomato\">Total: </span><strong>" + total + "</strong><br/>";
+            return (str2.concat(str)).concat(str3);
+        }
 
-function toggleDataSeries(e) {
-	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-		e.dataSeries.visible = false;
-	}
-	else {
-		e.dataSeries.visible = true;
-	}
-	chart.render();
-}
+        function toggleDataSeries(e) {
+            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            }
+            else {
+                e.dataSeries.visible = true;
+            }
+            chart.render();
+        }
 
-}
+    }
 </script>
-</head>
-<body>
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-    <br />
-    <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
-    <br />
-    <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
-    <br />
-    <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
-    <br />
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</body>
-</html>
+
+<div class="conHeader">Wie erlebt Berlin die Kryptowährungen?</div>
+
+<div class="container conWrapper">
+    <div class="row">
+        <div class="col-sm-6 chartContainer">
+            <div id="chartContainer" class="chart"></div>
+        </div>
+        <div class="ChartDescription col-sm-6 ">
+            <div class="innerDescription desRight">
+                Hiermit wurde getestet, wie in wie fern sich die Geselschaft über Kryptowährungen informiert hat. Man sieht das es sehr am Alter abhängt, wobei auch die Generation zwischen 25 und 50 sich noch moderat informiert hat.
+            </div>
+        </div>
+    </div>
+    <hr /><div class="row">
+        <div class="ChartDescription col-sm-6 ">
+            <div class="innerDescription desLeft">
+                Anhand dieser Grafik wird klar, dass die meisten Berliner der Ansicht sind, das Kryptowährungen als Investment oder als Trading genutzt werden. Dieser Ansatz weitet sich vor allem unter den jüngeren Bewohner aus.
+            </div>
+        </div>
+        <div class="col-sm-6 chartContainer">
+            <div id="chartContainer1" class="chart"></div>
+        </div>
+    </div>
+    <hr /><div class="row">
+        <div class="col-sm-6 chartContainer">
+            <div id="chartContainer2" class="chart"></div>
+        </div>
+        <div class="ChartDescription col-sm-6 ">
+            <div class="innerDescription desRight">
+                Hieran erkennt man, das die eher etwas ältere Generation mit grösserer Wahrscheinlichkeit nicht mehr mit Kryptowährungen zahlen wird, da der Glaube an solch eine Möglichkeit gar nicht mehr vorahnden ist.
+            </div>
+        </div>
+    </div>
+    <hr /><div class="row">
+        <div class="ChartDescription col-sm-6">
+            <div class="innerDescription desLeft">
+                Auch hier wird klar, dass die jüngere Generation bereit ist, ihre Käufe in Zukunft ohne eine zentral verwaltete Einheit die den Zahlungsverkehr überwacht zu tätigen.
+            </div>
+        </div>
+        <div class="col-sm-6 chartContainer">
+            <div id="chartContainer3" class="chart"></div>
+        </div>
+    </div>
+</div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<footer>
+    <a href="mailto:info@kryptoszene-berlin.ch">info@kryptoszene-berlin.ch</a>
+    <p>&copy; @DateTime.Now.Year - Krypotszene Berlin</p>
+</footer>
