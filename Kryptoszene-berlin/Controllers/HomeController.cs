@@ -13,7 +13,7 @@ namespace Kryptoszene_berlin.Controllers
         {
             return View();
         }
-        public ActionResult About()
+        public ActionResult Survey()
         {
             return View();
         }
