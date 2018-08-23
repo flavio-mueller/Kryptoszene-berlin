@@ -38,7 +38,7 @@ select {
 
 .NavBarCrypto {
     height: 70px;
-    background-color: rgba(0,0,10,0.85);
+    background-color: black;
     border: none;
     border-bottom: solid 1px white;
 }
@@ -283,7 +283,7 @@ hr {
     height: 250px;
     margin: 4vw 0;
     vertical-align: middle;
-    font-size: calc(0.8vw + 8px);
+    font-size: calc(0.6vw + 12px);
 }
 
 @media screen and (max-width: 776px) {
@@ -298,7 +298,7 @@ hr {
         top: 0 !important;
         transform: unset !important;
     }
-} 
+}
 
 .innerDescription {
     position: relative;
@@ -325,4 +325,12 @@ hr {
 .interviewImg {
     margin: 2vw;
     max-width: 80%;
+}
+
+.introdescription {
+    padding: 3vw calc(3vw + 20px);
+}
+
+.description {
+    font-size: calc(0.6vw + 12px);
 }
