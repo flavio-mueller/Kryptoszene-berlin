@@ -110,6 +110,7 @@ footer {
     right: 15%;
     bottom: 10%;
     font-size: calc(15px + 4vw);
+    font-family: "Nova Flat";
 }
 
 .SecondHeadingText {
