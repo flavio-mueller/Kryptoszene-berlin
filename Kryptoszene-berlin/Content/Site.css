@@ -38,9 +38,8 @@ select {
 
 .NavBarCrypto {
     height: 70px;
-    background-color: black;
+    background-color: rgba(0,0,0,0.7);
     border: none;
-    border-bottom: solid 1px white;
 }
 
 .NavBarCryptoInnerContainer {
@@ -75,7 +74,13 @@ footer {
 .navbar-inverse .navbar-collapse {
     border: none;
     margin-top: 10px;
-    background-color: rgba(0,0,10,0.85);
+    background-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar-inverse .navbar-collapse {
+        background-color: rgba(0,0,0,0.7);
+    }
 }
 
 .transparten-white {
@@ -85,35 +90,30 @@ footer {
 /*Index*/
 .IndexHeadingText {
     color: #ffaaaa;
-    font-size: calc(20px + 4vw);
+    font-size: calc(15px + 4vw);
     position: absolute;
-    top: 250px;
-    left: 10vw;
+    top: calc(70px + 3vw);
+    left: calc(10vw - 20px);
     font-family: "Nova Flat";
+}
+
+@media screen and (max-width: 350px) {
+    .IndexHeadingText {
+        font-size: calc(8px + 4vw);
+
+    }
+}
+
+.IndexLink {
+    z-index: 100;
+    position: absolute;
+    right: 15%;
+    bottom: 10%;
+    font-size: calc(15px + 4vw);
 }
 
 .SecondHeadingText {
     margin-left: 10vw;
-}
-
-.IndexHeadingText2 {
-    font-size: calc(20px + 2vw);
-    color: bisque;
-    position: absolute;
-    top: 110px;
-    right: 15vw;
-    font-family: "Nova Flat";
-}
-
-.IndexHeadingText3 {
-    font-size: calc(15px + 2vw);
-    color: darkseagreen;
-    position: absolute;
-    top: 550px;
-    right: 10vw;
-    font-family: "Nova Flat";
-    font-weight: 800;
-    max-width: 40vw;
 }
 
 
@@ -329,8 +329,31 @@ hr {
 
 .introdescription {
     padding: 3vw calc(3vw + 20px);
+    text-align: center;
 }
 
 .description {
     font-size: calc(0.6vw + 12px);
 }
+
+
+
+/* index */
+#svg {
+    bottom:0;
+    left: 0;
+    width:100%;
+    height: calc(100vh - 70px);
+    position:absolute;
+    /*-webkit-transform:translate3d(-50%,-50%,0);   */
+}
+.line {
+    stroke-dashoffset:0;
+    box-shadow: 10px 10px 1px black;
+}
+.breakpoint{
+    transform:scale(0);
+    position:absolute;
+    -webkit-transform-origin:50% 50%;
+}
+.active { transform: scale(1); }

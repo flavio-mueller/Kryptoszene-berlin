@@ -2,28 +2,162 @@
     ViewBag.Title = "Home Page";
 }
 
+<link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet' />
+<div class="IndexHeadingText col-xs-5 col-sm-7"> Entdeckungsreise durch die Bits und Bytes Berlins</div>
+<a href="~/Home/Introduction" class="IndexLink">Los Jeht's!</a>
+<svg id="svg" @*viewBox="0 0 1000 1000" *@>
+</svg>
 
-<div class="noscroll">
-    <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
-    <div class="IndexHeadingText" data-aos="fade-right" data-aos-duration="1500">
-        <div>Nur eine</div>
-        <div class="SecondHeadingText">Spielerei?</div>
-    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+<script>
 
+    // code from https://codepen.io/JonasBadalic/pen/jvCLe
+    var price = [0, -95, -30, -65, -35, -215, -95, -70, -115, -250, -178, -278, -312, -245, -450, -520, -412, -750, -812, -911];
 
-    <div class="IndexHeadingText2" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="1000">
-        <div>Plötzlich Reich...</div>
-    </div>
+    //CHART VALUES
+    var chartH = $('#svg').height();
+    var chartW = $('#svg').width();
 
-    <div class="IndexHeadingText3" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="2000">
-        <div>
-            Das Vermächtnis der Kryptowährungen
-        </div>
-    </div>
+    // PARSE PRICES TO ALIGN WITH BOTTOM OF OUR SVG
+    var prices = [];
+    for (i = 0; i < price.length; i++) {
+        prices[i] = price[i] + $('#svg').height();
+    }
 
-    <a class="explore" href="~/Home/About">
-        <div data-aos="fade-up" data-aos-duration="3000">
-            Erkunden &nbsp;<span class="glyphicon glyphicon-send iconsend"></span>
-        </div>
-    </a>
-</div>
+    function draw() {
+        //DEFINE SNAP SVG AND DETERMINE STEP NO.
+        var paper = Snap('#svg');
+        var steps = prices.length;
+
+        // EVENLY DISTRIBUTE OUR POINTS ALONG THE X AXIS
+
+        function step(i, chartW) {
+            return chartW / prices.length * i;
+        }
+
+        var points = [];
+        var breakPointsX = [];
+        var breakPointsY = [];
+        var point = {};
+
+        for (i = 1; i < prices.length; i++) {
+
+            //CALCULATE CURRENT POINT
+
+            var currStep = step(i, chartW);
+            var y = prices[i];
+            point.x = Math.floor(currStep);
+            point.y = y;
+
+            //CALCULATE PREVIOUS POINT
+
+            var prev = i - 1;
+            var prevStep = step(prev, chartW);
+            var prevY = prices[prev];
+            point.prevX = Math.floor(prevStep);
+            point.prevY = prevY;
+            if (point.prevX === 0 || point.prevY === 0) {
+                point.prevX = 15;
+                point.prevY = chartH - 15;
+            }
+            // SAVE PATH TO ARRAY
+            points[i] = " M" + point.prevX + "," + point.prevY + " L" + point.x + "," + point.y;
+
+            // SAVE BREAKPOINTS POSITION
+
+            var r = 30;
+            breakPointsX[i] = point.x;
+            breakPointsY[i] = point.y;
+        }
+
+        // DRAW LINES
+
+        for (i = 0; i < points.length; i++) {
+            var myPath = paper.path(points[i]);
+            var len = myPath.getTotalLength();
+            myPath.attr({
+                'stroke-dasharray': len,
+                'stroke-dashoffset': len,
+                'stroke': 'white',
+                'stroke-linecap': 'round',
+                'stroke-width': 6,
+                'stroke-linejoin': 'round',
+                'id': 'myLine' + i,
+                'class': 'line'
+            });
+        }
+        // DRAW BREAKPOINTS
+        for (i = 0; i < points.length; i++) {
+            var circle = paper.circle(breakPointsX[i], breakPointsY[i], 5);
+            circle.attr({
+                'fill': '#ffaaaa',
+                'stroke': 'white',
+                'stroke-width': 3,
+                'id': 'myCirc' + i,
+                'class': 'breakpoint'
+            });
+        }
+        //// DRAW COORDINATE SYSTEM
+        //var xAxis = paper.path('M0,' + chartH + 'L' + chartW + "," + chartH);
+        //var yAxis = paper.path('M0,' + chartH + 'L0,0');
+
+        //var xOff = xAxis.getTotalLength();
+        //var yOff = yAxis.getTotalLength();
+        //var start = (prices.length * 250 + "ms");
+
+        //yAxis.attr({
+        //    'stroke': 'white',
+        //    'stroke-width': 1,
+        //    'stroke-dasharray': yOff,
+        //    'stroke-dashoffset': yOff,
+        //    'id': 'yAxis'
+        //});
+        //xAxis.attr({
+        //    'stroke': 'white',
+        //    'stroke-width': 1,
+        //    'stroke-dasharray': xOff,
+        //    'stroke-dashoffset': xOff,
+        //    'id': 'xAxis'
+        //});
+        //$('#yAxis').css({
+        //    '-webkit-transition-delay': start,
+        //    '-webkit-transition': 'all 200ms ease-in'
+        //});
+        //$('#xAxis').css({
+        //    '-webkit-transition-delay': start,
+        //    '-webkit-transition': 'all 200ms ease-in'
+        //});
+        //$('#xAxis').animate({
+        //    'stroke-dashoffset': '0'
+        //});
+        //$('#yAxis').animate({
+        //    'stroke-dashoffset': '0'
+        //});
+    }
+    function animate() {
+        for (i = 0; i < prices.length; i++) {
+            var circ = $('#myCirc' + i);
+            var line = $('#myLine' + i);
+            circ.css({
+                '-webkit-transition': 'all 250ms cubic-bezier(.84,0,.2,1)',
+                '-webkit-transition-delay': 375 + (i * 125) + "ms"
+            });
+            line.css({
+                '-webkit-transition': 'all 150ms cubic-bezier(.84,0,.2,1)',
+                '-webkit-transition-delay': i * 125 + "ms"
+            });
+            line.animate({
+                'stroke-dashoffset': 0
+            });
+            circ.css({
+                'transform': 'scale(1)'
+            });
+        }
+    }
+
+    $(window).load(function () {
+        draw();
+        animate();
+    });
+
+</script>
