@@ -97,7 +97,7 @@ footer {
     font-family: "Nova Flat";
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 450px) {
     .IndexHeadingText {
         font-size: calc(8px + 4vw);
 
